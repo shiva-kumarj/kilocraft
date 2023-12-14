@@ -3,16 +3,20 @@ import 'package:flutter/material.dart';
 class CustomTextField extends StatelessWidget {
   final controller;
   final String hintText;
+  final focusNode;
 
   const CustomTextField(
-      {super.key, required this.controller, required this.hintText});
+      {super.key, required this.controller, required this.hintText, required this.focusNode});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 50.0),
       child: TextField(
+        focusNode: focusNode,
+        keyboardType: TextInputType.none,
         controller: controller,
+        autofocus: false,
         decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.circular(10),
